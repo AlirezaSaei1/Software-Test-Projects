@@ -91,4 +91,47 @@ This is the introduction section of my document.
 \end{enumerate}
 \textbf{Expected Result:} The selected trip should be canceled, and all associated tickets should also be canceled.
 
+\pagebreak
+
+\section{Test Scenario 3: Ticket Booking and Cancellation}
+\bigskip
+\bigskip
+\subsection{Test Case 3.1: Book a Ticket}
+
+\textbf{Description:} Verify that a new ticket can be booked for a trip if the trip has not reached the maximum number of passengers.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user is authorized to book a ticket.
+  \item There is an available trip.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Select and available trip
+  \item Provide passenger name
+  \item Book a ticket
+\end{enumerate}
+\textbf{Expected Result:}  A new ticket should be booked for the selected trip.
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 3.2: Cancel a Ticket}
+
+\textbf{Description:} Verify that a booked ticket can be canceled.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user has a booked ticket.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Select a booked ticket
+\end{enumerate}
+\textbf{Expected Result:} The selected ticket should be canceled, and the trip should be updated accordingly.
+
+\pagebreak
+
+
 \end{document}

@@ -52,5 +52,43 @@ This is the introduction section of my document.
 
 \pagebreak
 
+\section{Test Scenario 2: Trip Management}
+\bigskip
+\bigskip
+\subsection{Test Case 2.1: Create a New Trip}
+
+\textbf{Description:} Verify that a new trip can be added to the system considering the specific constraints.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user is authorized to add a new trip.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Provide valid details for the new trip: Origin
+  \item Provide valid details for the new trip: Destination
+  \item Provide valid details for the new trip: Train
+  \item Provide valid details for the new trip: Departure Time
+  \item Provide valid details for the new trip: Arrival Time
+\end{enumerate}
+\textbf{Expected Result:} The new trip should be created and registered in the system.
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 2.2: Cancel Trip}
+
+\textbf{Description:} Verify that a trip can be canceled in the system.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user is authorized to cancel a trip.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Select a trip to cancel 
+\end{enumerate}
+\textbf{Expected Result:} The selected trip should be canceled, and all associated tickets should also be canceled.
 
 \end{document}

@@ -1,4 +1,4 @@
-package fr.univnantes.trainreservation;
+package org.example;
 
 /**
  * Represents a ticket booked for a trip by a customer.

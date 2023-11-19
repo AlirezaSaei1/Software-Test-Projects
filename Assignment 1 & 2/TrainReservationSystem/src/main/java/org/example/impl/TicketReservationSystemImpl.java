@@ -1,6 +1,6 @@
-package fr.univnantes.trainreservation.impl;
+package org.example.impl;
 
-import fr.univnantes.trainreservation.*;
+import org.example.*;
 
 import java.time.Duration;
 import java.time.Instant;

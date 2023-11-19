@@ -1,4 +1,4 @@
-package fr.univnantes.trainreservation.util;
+package org.example.util;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

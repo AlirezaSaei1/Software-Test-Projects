@@ -1,8 +1,8 @@
-package fr.univnantes.trainreservation.impl;
+package org.example.impl;
 
-import fr.univnantes.trainreservation.ReservationException;
-import fr.univnantes.trainreservation.Ticket;
-import fr.univnantes.trainreservation.Trip;
+import org.example.ReservationException;
+import org.example.Ticket;
+import org.example.Trip;
 
 public class TicketImpl implements Ticket {
 

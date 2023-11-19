@@ -1,6 +1,6 @@
-package fr.univnantes.trainreservation.impl;
+package org.example.impl;
 
-import fr.univnantes.trainreservation.Train;
+import org.example.Train;
 
 public class TrainImpl implements Train {
 

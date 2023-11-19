@@ -1,4 +1,4 @@
-package fr.univnantes.trainreservation;
+package org.example;
 
 /**
  * Represents a train available in the rail system.

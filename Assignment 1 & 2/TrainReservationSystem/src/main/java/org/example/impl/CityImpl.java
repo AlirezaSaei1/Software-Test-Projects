@@ -1,6 +1,6 @@
-package fr.univnantes.trainreservation.impl;
+package org.example.impl;
 
-import fr.univnantes.trainreservation.City;
+import org.example.City;
 
 public class CityImpl implements City {
 

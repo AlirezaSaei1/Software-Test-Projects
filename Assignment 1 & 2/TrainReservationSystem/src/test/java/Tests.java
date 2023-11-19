@@ -108,4 +108,13 @@ public class Tests {
         List<Trip> trips = trs.getAllTrips();
         assertEquals(trips.toArray().length, 0);
     }
+
+    // Scenario 3: Ticket Booking and Cancellation
+    @Test
+    public void bookingATicket(){
+        ZoneId zoneId = ZoneId.systemDefault();
+        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
+
+
+    }
 }

@@ -1,7 +1,4 @@
-import org.example.impl.CityImpl;
-import org.example.impl.TicketImpl;
-import org.example.impl.TicketReservationSystemImpl;
-import org.example.impl.TripImpl;
+import org.example.impl.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,4 +35,30 @@ public class Tests {
         assertTrue(cityExists);
     }
 
+    @Test
+    public void AddNewTrain(){
+        ZoneId zoneId = ZoneId.systemDefault();
+        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
+
+        Train train1 = new TrainImpl("Bullet Train", 100);
+        trs.addTrain(train1);
+        Train train2 = new TrainImpl("Bullet Train", 100);
+        trs.addTrain(train2);
+        Train train3 = new TrainImpl("Bullet Train", 100);
+        trs.addTrain(train3);
+
+        Train train = new TrainImpl("Bullet Train", 100);
+        trs.addTrain(train);
+
+        List<Train> trains = trs.getAllTrains();
+
+        boolean trainExists = false;
+        for (Train t : trains) {
+            if (t.getName().equals(train.getName())) {
+                trainExists = true;
+                break;
+            }
+        }
+        assertTrue(trainExists);
+    }
 }

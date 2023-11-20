@@ -87,7 +87,7 @@ This is the introduction section of my document.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Select a trip to cancel 
+  \item Select a trip to cancel
 \end{enumerate}
 \textbf{Expected Result:} The selected trip should be canceled, and all associated tickets should also be canceled.
 
@@ -130,6 +130,23 @@ This is the introduction section of my document.
   \item Select a booked ticket
 \end{enumerate}
 \textbf{Expected Result:} The selected ticket should be canceled, and the trip should be updated accordingly.
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 3.3: Book a Ticket for a full trip}
+
+\textbf{Description:} Verify that a ticket for a full trip cannot be created.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Create a ticket for a trip with max passengers
+\end{enumerate}
+\textbf{Expected Result:} The ticket should not be booked and it must give an error.
 
 \pagebreak
 

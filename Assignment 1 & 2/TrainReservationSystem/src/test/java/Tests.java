@@ -6,6 +6,8 @@ import org.example.*;
 
 import java.time.Instant;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Tests {
@@ -111,10 +113,22 @@ public class Tests {
 
     // Scenario 3: Ticket Booking and Cancellation
     @Test
-    public void bookingATicket(){
+    public void bookingATicket() throws TripException, ReservationException {
         ZoneId zoneId = ZoneId.systemDefault();
         TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
 
+        City origin = new CityImpl("City A");
+        City destination = new CityImpl("City B");
+        Train train = new TrainImpl("Express Train", 200);
+        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
+        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
 
+        Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
+        trip.bookTicket("Alireza");
+
+        List<Ticket> tickets = trs.getAllBookedTickets();
+        List<Ticket> actual_tickets = trip.getBookedTickets();
+
+        assertEquals(tickets, actual_tickets);
     }
 }

@@ -188,11 +188,13 @@ public class Tests {
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
-        Duration dur = Duration.ofDays(1);
-        trip.addDepartureDelay(dur);
+        Duration dur_day = Duration.ofDays(1);
+        Duration dur_hour = Duration.ofHours(2);
+        Duration dur_merged = dur_day.plus(dur_hour);
+        trip.addDepartureDelay(dur_merged);
 
         assertTrue(trs.getAllTrips().get(0).isDelayed());
-        assertEquals(trip.getDepartureDelay(), dur);
-        assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-26T10:00:00Z"));
+        assertEquals(trip.getDepartureDelay(), dur_merged);
+        assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-26T12:00:00Z"));
     }
 }

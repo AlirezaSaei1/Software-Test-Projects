@@ -196,5 +196,32 @@ public class Tests {
         assertTrue(trs.getAllTrips().get(0).isDelayed());
         assertEquals(trip.getDepartureDelay(), dur_merged);
         assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-26T12:00:00Z"));
+        assertEquals(trip.getPlannedDepartureTime(), Instant.parse("2023-11-25T10:00:00Z"));
     }
+
+    @Test
+    public void addArrivalDelayToATrip() throws TripException{
+        ZoneId zoneId = ZoneId.systemDefault();
+        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
+
+        City origin = new CityImpl("City A");
+        City destination = new CityImpl("City B");
+        Train train = new TrainImpl("Express Train", 10);
+        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
+        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+
+        Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
+        Duration dur_day = Duration.ofDays(1);
+        Duration dur_hour = Duration.ofHours(2);
+        Duration dur_merged = dur_day.plus(dur_hour);
+        trip.addArrivalDelay(dur_merged);
+
+        // There is an error in isDelayed() for checking delay for arrivalTime
+        assertTrue(trs.getAllTrips().get(0).isDelayed());
+        assertEquals(trip.getArrivalDelay(), dur_merged);
+        assertEquals(trip.findRealArrivalTime(), Instant.parse("2023-11-29T16:00:00Z"));
+        assertEquals(trip.getPlannedArrivalTime(), Instant.parse("2023-11-28T14:00:00Z"));
+    }
+
+    
 }

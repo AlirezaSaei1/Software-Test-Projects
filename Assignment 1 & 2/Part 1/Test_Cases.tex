@@ -187,5 +187,31 @@ This is the introduction section of my document.
 \end{enumerate}
 \textbf{Expected Result:} The arrival delay should be added to the trip, and the real arrival time should be updated accordingly.
 
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 4.3: Add Departure Delay more than Duration to pass arrival date}
+
+\textbf{Description:} Verify that a departure date cannot pass arrival time after being delayed.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item There is a trip available for delay.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+    \item Select a trip
+    \item Add departure delay more that duration
+\end{enumerate}
+\textbf{Expected Result:} The departure delay should not be added to the trip, or the arrival time must be updated.
+
 \pagebreak
+
+\section{Test Scenario 5: Delay Management}
+\bigskip
+\bigskip
+\subsection{Test Case 5.1: Add Departure Delay to a Trip}
+
+
 \end{document}

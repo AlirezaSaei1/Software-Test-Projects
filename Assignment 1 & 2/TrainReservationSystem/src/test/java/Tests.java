@@ -1,4 +1,5 @@
 import org.example.impl.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,17 +8,23 @@ import org.example.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Tests {
+
+    private ZoneId zoneId;
+    private TicketReservationSystem trs;
+
+    @BeforeEach
+    public void setUp() {
+        // Set up the default ZoneId and create a TicketReservationSystem
+        zoneId = ZoneId.systemDefault();
+        trs = new TicketReservationSystemImpl(zoneId);
+    }
+
     // Scenario 1: City and Train Management
     @Test
     public void addNewCity(){
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         // Add a city to the system before executing the test
         City existingCity1 = new CityImpl("Los Angeles");
         trs.addCity(existingCity1);
@@ -42,9 +49,6 @@ public class Tests {
 
     @Test
     public void AddNewTrain(){
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         Train train1 = new TrainImpl("Bullet Train", 100);
         trs.addTrain(train1);
         Train train2 = new TrainImpl("Bullet Train", 100);
@@ -70,9 +74,6 @@ public class Tests {
     // Scenario 2: Trip Management
     @Test
     public void createNewValidTrip() throws TripException {
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin1 = new CityImpl("City A");
         City destination1 = new CityImpl("City B");
         Train train1 = new TrainImpl("Express Train", 200);
@@ -96,9 +97,6 @@ public class Tests {
 
     @Test
     public void cancelAnExistingTrip() throws TripException {
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
@@ -115,9 +113,6 @@ public class Tests {
     // Scenario 3: Ticket Booking and Cancellation
     @Test
     public void bookingATicket() throws TripException, ReservationException {
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
@@ -135,9 +130,6 @@ public class Tests {
 
     @Test
     public void cancelATicket() throws TripException, ReservationException{
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
@@ -160,9 +152,6 @@ public class Tests {
 
     @Test
     public void bookAnInvalidTicket() throws TripException, ReservationException{
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 3);
@@ -182,9 +171,6 @@ public class Tests {
     // Scenario 4: Delay Management
     @Test
     public void addDepartureDelayToATrip() throws TripException{
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 3);
@@ -205,9 +191,6 @@ public class Tests {
 
     @Test
     public void addArrivalDelayToATrip() throws TripException{
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 10);
@@ -229,9 +212,6 @@ public class Tests {
 
     @Test
     public void addDepartureDelayToATripMoreThanDuration() throws TripException{
-        ZoneId zoneId = ZoneId.systemDefault();
-        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
-
         City origin = new CityImpl("City A");
         City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 10);

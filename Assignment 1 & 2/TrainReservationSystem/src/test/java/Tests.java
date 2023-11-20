@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.example.*;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -172,5 +173,26 @@ public class Tests {
         assertThrows(ReservationException.class, () -> {
             trip.bookTicket("Andrew Tate");
         });
+    }
+
+    // Scenario 4: Delay Management
+    @Test
+    public void addDepartureDelayToATrip() throws TripException{
+        ZoneId zoneId = ZoneId.systemDefault();
+        TicketReservationSystem trs = new TicketReservationSystemImpl(zoneId);
+
+        City origin = new CityImpl("City A");
+        City destination = new CityImpl("City B");
+        Train train = new TrainImpl("Express Train", 3);
+        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
+        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+
+        Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
+        Duration dur = Duration.ofDays(1);
+        trip.addDepartureDelay(dur);
+
+        assertTrue(trs.getAllTrips().get(0).isDelayed());
+        assertEquals(trip.getDepartureDelay(), dur);
+        assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-26T10:00:00Z"));
     }
 }

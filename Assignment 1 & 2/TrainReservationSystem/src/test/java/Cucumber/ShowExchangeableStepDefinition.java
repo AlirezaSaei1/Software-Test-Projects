@@ -19,10 +19,10 @@ import java.util.List;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/Cucumber/exchange_ticket.feature"},
+        features = {"src/test/resources/Cucumber/find_exchangeable_tickets.feature"},
         glue = "Cucumber"
 )
-public class ExchangeStepDefinition {
+public class ShowExchangeableStepDefinition {
     ZoneId zoneId = ZoneId.systemDefault();
     TicketReservationSystem trs;
     Trip trip1;

@@ -12,14 +12,17 @@ import java.util.List;
 
 public class Tests {
 
-    private ZoneId zoneId;
     private TicketReservationSystem trs;
+    City origin;
+    City destination;
 
     @BeforeEach
     public void setUp() {
         // Set up the default ZoneId and create a TicketReservationSystem
-        zoneId = ZoneId.systemDefault();
+        ZoneId zoneId = ZoneId.systemDefault();
         trs = new TicketReservationSystemImpl(zoneId);
+        origin = new CityImpl("City A");
+        destination = new CityImpl("City B");
     }
 
     // Scenario 1: City and Train Management
@@ -97,8 +100,6 @@ public class Tests {
 
     @Test
     public void cancelAnExistingTrip() throws TripException {
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -113,8 +114,6 @@ public class Tests {
     // Scenario 3: Ticket Booking and Cancellation
     @Test
     public void bookingATicket() throws TripException, ReservationException {
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -130,8 +129,6 @@ public class Tests {
 
     @Test
     public void cancelATicket() throws TripException, ReservationException{
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 200);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -152,8 +149,6 @@ public class Tests {
 
     @Test
     public void bookAnInvalidTicket() throws TripException, ReservationException{
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 3);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -171,8 +166,6 @@ public class Tests {
     // Scenario 4: Delay Management
     @Test
     public void addDepartureDelayToATrip() throws TripException{
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 3);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -191,8 +184,6 @@ public class Tests {
 
     @Test
     public void addArrivalDelayToATrip() throws TripException{
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 10);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
@@ -212,8 +203,6 @@ public class Tests {
 
     @Test
     public void addDepartureDelayToATripMoreThanDuration() throws TripException{
-        City origin = new CityImpl("City A");
-        City destination = new CityImpl("City B");
         Train train = new TrainImpl("Express Train", 10);
         Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
         Instant arrivalTime = Instant.parse("2023-11-27T10:00:00Z");

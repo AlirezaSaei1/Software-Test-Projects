@@ -3,6 +3,9 @@ package Cucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.example.*;
@@ -14,7 +17,12 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.util.List;
 
-public class StepDefinitions {
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = {"src/test/resources/Cucumber/exchange_ticket.feature"},
+        glue = "Cucumber"
+)
+public class ExchangeStepDefinition {
     ZoneId zoneId = ZoneId.systemDefault();
     TicketReservationSystem trs;
     Trip trip1;

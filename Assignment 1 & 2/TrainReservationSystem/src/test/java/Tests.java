@@ -1,4 +1,5 @@
 import org.example.impl.*;
+import org.example.util.TimeManagement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class Tests {
 
+    ZoneId zoneId;
     private TicketReservationSystem trs;
     City origin;
     City destination;
@@ -19,7 +21,7 @@ public class Tests {
     @BeforeEach
     public void setUp() {
         // Set up the default ZoneId and create a TicketReservationSystem
-        ZoneId zoneId = ZoneId.systemDefault();
+        zoneId = ZoneId.systemDefault();
         trs = new TicketReservationSystemImpl(zoneId);
         origin = new CityImpl("City A");
         destination = new CityImpl("City B");
@@ -80,8 +82,8 @@ public class Tests {
         City origin1 = new CityImpl("City A");
         City destination1 = new CityImpl("City B");
         Train train1 = new TrainImpl("Express Train", 200);
-        Instant departureTime1 = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime1 = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime1 = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime1 = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip1 = trs.createTrip(origin1, destination1, train1, departureTime1, arrivalTime1);
 
@@ -89,8 +91,8 @@ public class Tests {
         City origin2 = new CityImpl("City C");
         City destination2 = new CityImpl("City D");
         Train train2 = new TrainImpl("Local Train", 100);
-        Instant departureTime2 = Instant.parse("2023-12-02T08:00:00Z");
-        Instant arrivalTime2 = Instant.parse("2023-12-02T10:00:00Z");
+        Instant departureTime2 = TimeManagement.createInstant("2023-12-02 08:00", zoneId);
+        Instant arrivalTime2 = TimeManagement.createInstant("2023-12-02 10:00", zoneId);
 
         Trip trip2 = trs.createTrip(origin2, destination2, train2, departureTime2, arrivalTime2);
 
@@ -115,8 +117,8 @@ public class Tests {
     @Test
     public void bookingATicket() throws TripException, ReservationException {
         Train train = new TrainImpl("Express Train", 200);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         trip.bookTicket("Alireza");
@@ -130,8 +132,8 @@ public class Tests {
     @Test
     public void cancelATicket() throws TripException, ReservationException{
         Train train = new TrainImpl("Express Train", 200);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         trip.bookTicket("Alireza");
@@ -150,8 +152,9 @@ public class Tests {
     @Test
     public void bookAnInvalidTicket() throws TripException, ReservationException{
         Train train = new TrainImpl("Express Train", 3);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
+
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         trip.bookTicket("Alireza Saei");
@@ -167,8 +170,8 @@ public class Tests {
     @Test
     public void addDepartureDelayToATrip() throws TripException{
         Train train = new TrainImpl("Express Train", 3);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         Duration dur_day = Duration.ofDays(1);
@@ -178,15 +181,15 @@ public class Tests {
 
         assertTrue(trs.getAllTrips().get(0).isDelayed());
         assertEquals(trip.getDepartureDelay(), dur_merged);
-        assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-26T12:00:00Z"));
-        assertEquals(trip.getPlannedDepartureTime(), Instant.parse("2023-11-25T10:00:00Z"));
+        assertEquals(trip.findRealDepartureTime(), TimeManagement.createInstant("2023-11-26 12:00", zoneId));
+        assertEquals(trip.getPlannedDepartureTime(), departureTime);
     }
 
     @Test
     public void addArrivalDelayToATrip() throws TripException{
         Train train = new TrainImpl("Express Train", 10);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         Duration dur_day = Duration.ofDays(1);
@@ -197,15 +200,15 @@ public class Tests {
         // There is an error in isDelayed() for checking delay for arrivalTime
         assertTrue(trs.getAllTrips().get(0).isDelayed());
         assertEquals(trip.getArrivalDelay(), dur_merged);
-        assertEquals(trip.findRealArrivalTime(), Instant.parse("2023-11-29T16:00:00Z"));
-        assertEquals(trip.getPlannedArrivalTime(), Instant.parse("2023-11-28T14:00:00Z"));
+        assertEquals(trip.findRealArrivalTime(), TimeManagement.createInstant("2023-11-29 16:00", zoneId));
+        assertEquals(trip.getPlannedArrivalTime(), arrivalTime);
     }
 
     @Test
     public void addDepartureDelayToATripMoreThanDuration() throws TripException{
         Train train = new TrainImpl("Express Train", 10);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-27T10:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-27 10:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
         Duration dur = Duration.ofDays(4);
@@ -213,8 +216,8 @@ public class Tests {
 
         assertTrue(trs.getAllTrips().get(0).isDelayed());
         assertEquals(trip.getDepartureDelay(), dur);
-        assertEquals(trip.findRealDepartureTime(), Instant.parse("2023-11-29T10:00:00Z"));
-        assertEquals(trip.getPlannedDepartureTime(), Instant.parse("2023-11-25T10:00:00Z"));
+        assertEquals(trip.findRealDepartureTime(), TimeManagement.createInstant("2023-11-29 10:00", zoneId));
+        assertEquals(trip.getPlannedDepartureTime(), departureTime);
         // Now departure time is after arrival time that is not true
         assertTrue(trip.findRealArrivalTime().isAfter(trip.findRealDepartureTime()));
     }

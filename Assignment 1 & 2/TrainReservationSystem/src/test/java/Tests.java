@@ -141,6 +141,19 @@ public class Tests {
         });
     }
 
+    @Test
+    public void createATripButArrivalIsBeforeDeparture(){
+        City origin = new CityImpl("City A");
+        City destination = new CityImpl("City B");
+        Train train = new TrainImpl("Express Train", 200);
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-10-25 14:00", zoneId);
+
+        assertThrows(TripException.class, ()->{
+            Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
+        });
+    }
+
     // Group 3: Ticket Booking and Cancellation
     @Test
     public void bookingATicket() throws TripException, ReservationException {

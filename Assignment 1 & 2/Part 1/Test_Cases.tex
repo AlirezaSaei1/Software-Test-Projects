@@ -141,6 +141,24 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \end{enumerate}
 \textbf{Expected Result:} The second should not be added to the trips list of the train, and a trip exception must be thrown.
 
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 2.4: Add a trip but arrival is before departure}
+
+\textbf{Description:} Verify that a trip with its arrival time being before departure time cannot be created\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user is authorized to add a trip.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Add an invalid trip to train (Departure time is after arrival time)
+\end{enumerate}
+\textbf{Expected Result:} The trip must not be created and an exception must be thrown (TripException).
+
 \pagebreak
 
 \section{Section 3: Ticket Booking and Cancellation}
@@ -184,21 +202,6 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \bigskip
 \hrule
 \bigskip
-
-\subsection{Test Case 3.3: Book a Ticket for a full trip}
-
-\textbf{Description:} Verify that a ticket for a full trip cannot be created.\\
-\textbf{Preconditions:}
-\begin{itemize}
-  \item The system is running.
-\end{itemize}
-\textbf{Steps:}
-\begin{enumerate}
-  \item Create a ticket for a trip with max passengers
-\end{enumerate}
-\textbf{Expected Result:} The ticket should not be booked and it must give an error.
-
-\pagebreak
 
 \subsection{Test Case 3.3: Book a Ticket for a full trip}
 
@@ -417,6 +420,29 @@ This test case is for checking if a valid trip can be canceled correctly or not.
 \end{figure}
 
 In the code above, first we create an instance of objects needed for creating a trip, After creating the trip, we cancel the same trip created before and then check for the length of trip lists to be reduced by 1 (In this case: 0).
+
+\pagebreak
+
+\subsubsection{Test Case 2.3: Add a trip with conflicting timings to a train}
+In this test case, we try to create two trips for a train that they have conflicting timings and one cannot be created.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T2-3.png}
+  \caption{Test Case 2.3}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 2.4: Add a trip but arrival is before departure}
+In this test case we want to check if a trip can be created with its arrival time coming before departure time. This action must throw an exception. As can be seen in the picture, a trip is created and invalid timings are given to it. Then, the code expects to get a TripException.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T2-4.png}
+  \caption{Test Case 2.4}
+  \label{fig:your_label}
+\end{figure}
 
 \pagebreak
 

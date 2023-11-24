@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.26)  24 NOV 2023 16:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.26)  24 NOV 2023 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,6 +396,12 @@ LaTeX Warning: Label `fig:your_label' multiply defined.
 
 LaTeX Warning: Label `fig:your_label' multiply defined.
 
+
+LaTeX Warning: Label `fig:your_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:your_label' multiply defined.
+
 )
 \openout1 = `Test_Cases.aux'.
 
@@ -449,7 +455,7 @@ Package hyperref Info: Link coloring OFF on input line 18.
 \@outlinefile=\write3
 \openout3 = `Test_Cases.out'.
 
-<pictures/university-of-isfahan-logo.png, id=175, 596.2275pt x 596.2275pt>
+<pictures/university-of-isfahan-logo.png, id=183, 596.2275pt x 596.2275pt>
 File: pictures/university-of-isfahan-logo.png Graphic file (type png)
 <use pictures/university-of-isfahan-logo.png>
 Package pdftex.def Info: pictures/university-of-isfahan-logo.png  used on input
@@ -479,13 +485,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
 
-[2] [3] [4] [5] [6] [7] [8] [9]
+[2] [3] [4] [5] [6] [7] [8]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 282.
+(Font)              <7> on input line 285.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 282.
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
+(Font)              <5> on input line 285.
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
@@ -496,111 +502,122 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
-22.
+25.
 
 (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 322.
- [11]
-<pictures/T-B.png, id=283, 441.44925pt x 140.32425pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 325.
+ [10]
+<pictures/T-B.png, id=287, 441.44925pt x 140.32425pt>
 File: pictures/T-B.png Graphic file (type png)
 <use pictures/T-B.png>
-Package pdftex.def Info: pictures/T-B.png  used on input line 360.
+Package pdftex.def Info: pictures/T-B.png  used on input line 363.
 (pdftex.def)             Requested size: 345.0pt x 109.66658pt.
 
-[12 <./pictures/T-B.png>]
-<pictures/T1-1.png, id=289, 392.06474pt x 380.01974pt>
+[11 <./pictures/T-B.png>]
+<pictures/T1-1.png, id=293, 392.06474pt x 380.01974pt>
 File: pictures/T1-1.png Graphic file (type png)
 <use pictures/T1-1.png>
-Package pdftex.def Info: pictures/T1-1.png  used on input line 373.
+Package pdftex.def Info: pictures/T1-1.png  used on input line 376.
 (pdftex.def)             Requested size: 345.0pt x 334.401pt.
- [13 <./pictures/T1-1.png>]
-<pictures/T1-2.png, id=296, 469.15276pt x 388.45125pt>
+ [12 <./pictures/T1-1.png>]
+<pictures/T1-2.png, id=299, 469.15276pt x 388.45125pt>
 File: pictures/T1-2.png Graphic file (type png)
 <use pictures/T1-2.png>
-Package pdftex.def Info: pictures/T1-2.png  used on input line 385.
+Package pdftex.def Info: pictures/T1-2.png  used on input line 388.
 (pdftex.def)             Requested size: 345.0pt x 285.6653pt.
- [14 <./pictures/T1-2.png>]
-<pictures/T2-1.png, id=302, 635.37375pt x 376.40625pt>
+ [13 <./pictures/T1-2.png>]
+<pictures/T2-1.png, id=306, 635.37375pt x 376.40625pt>
 File: pictures/T2-1.png Graphic file (type png)
 <use pictures/T2-1.png>
-Package pdftex.def Info: pictures/T2-1.png  used on input line 402.
+Package pdftex.def Info: pictures/T2-1.png  used on input line 405.
 (pdftex.def)             Requested size: 345.0pt x 204.3878pt.
-[15 <./pictures/T2-1.png>]
-<pictures/T2-2.png, id=308, 604.05675pt x 208.98074pt>
+[14 <./pictures/T2-1.png>]
+<pictures/T2-2.png, id=312, 604.05675pt x 208.98074pt>
 File: pictures/T2-2.png Graphic file (type png)
 <use pictures/T2-2.png>
-Package pdftex.def Info: pictures/T2-2.png  used on input line 414.
+Package pdftex.def Info: pictures/T2-2.png  used on input line 417.
 (pdftex.def)             Requested size: 345.0pt x 119.3594pt.
- [16 <./pictures/T2-2.png>]
-<pictures/T3-1.png, id=314, 596.82974pt x 237.88875pt>
+ [15 <./pictures/T2-2.png>]
+<pictures/T2-3.png, id=318, 610.07925pt x 342.68025pt>
+File: pictures/T2-3.png Graphic file (type png)
+<use pictures/T2-3.png>
+Package pdftex.def Info: pictures/T2-3.png  used on input line 431.
+(pdftex.def)             Requested size: 345.0pt x 193.78725pt.
+ [16 <./pictures/T2-3.png>]
+<pictures/T2-4.png, id=324, 611.28375pt x 206.57175pt>
+File: pictures/T2-4.png Graphic file (type png)
+<use pictures/T2-4.png>
+Package pdftex.def Info: pictures/T2-4.png  used on input line 442.
+(pdftex.def)             Requested size: 345.0pt x 116.58401pt.
+ [17 <./pictures/T2-4.png>]
+<pictures/T3-1.png, id=330, 596.82974pt x 237.88875pt>
 File: pictures/T3-1.png Graphic file (type png)
 <use pictures/T3-1.png>
-Package pdftex.def Info: pictures/T3-1.png  used on input line 430.
+Package pdftex.def Info: pictures/T3-1.png  used on input line 456.
 (pdftex.def)             Requested size: 345.0pt x 137.51456pt.
- [17 <./pictures/T3-1.png>]
-<pictures/T3-2.png, id=320, 599.23875pt x 317.38576pt>
+ [18 <./pictures/T3-1.png>]
+<pictures/T3-2.png, id=336, 599.23875pt x 317.38576pt>
 File: pictures/T3-2.png Graphic file (type png)
 <use pictures/T3-2.png>
-Package pdftex.def Info: pictures/T3-2.png  used on input line 443.
+Package pdftex.def Info: pictures/T3-2.png  used on input line 469.
 (pdftex.def)             Requested size: 345.0pt x 182.7327pt.
- [18 <./pictures/T3-2.png>]
-<pictures/T3-3.png, id=326, 601.64775pt x 268.00125pt>
+ [19 <./pictures/T3-2.png>]
+<pictures/T3-3.png, id=343, 601.64775pt x 268.00125pt>
 File: pictures/T3-3.png Graphic file (type png)
 <use pictures/T3-3.png>
-Package pdftex.def Info: pictures/T3-3.png  used on input line 456.
+Package pdftex.def Info: pictures/T3-3.png  used on input line 482.
 (pdftex.def)             Requested size: 345.0pt x 153.68239pt.
- [19 <./pictures/T3-3.png>]
-<pictures/T4-1.png, id=333, 708.84825pt x 294.50024pt>
+ [20 <./pictures/T3-3.png>]
+<pictures/T4-1.png, id=349, 708.84825pt x 294.50024pt>
 File: pictures/T4-1.png Graphic file (type png)
 <use pictures/T4-1.png>
-Package pdftex.def Info: pictures/T4-1.png  used on input line 470.
+Package pdftex.def Info: pictures/T4-1.png  used on input line 496.
 (pdftex.def)             Requested size: 345.0pt x 143.33124pt.
- [20 <./pictures/T4-1.png>]
-<pictures/T4-2.png, id=339, 701.62125pt x 306.54526pt>
+ [21 <./pictures/T4-1.png>]
+<pictures/T4-2.png, id=355, 701.62125pt x 306.54526pt>
 File: pictures/T4-2.png Graphic file (type png)
 <use pictures/T4-2.png>
-Package pdftex.def Info: pictures/T4-2.png  used on input line 483.
+Package pdftex.def Info: pictures/T4-2.png  used on input line 509.
 (pdftex.def)             Requested size: 345.0pt x 150.73703pt.
- [21 <./pictures/T4-2.png>]
-<pictures/T4-3.png, id=345, 702.82574pt x 292.09125pt>
+ [22 <./pictures/T4-2.png>]
+<pictures/T4-3.png, id=361, 702.82574pt x 292.09125pt>
 File: pictures/T4-3.png Graphic file (type png)
 <use pictures/T4-3.png>
-Package pdftex.def Info: pictures/T4-3.png  used on input line 496.
+Package pdftex.def Info: pictures/T4-3.png  used on input line 522.
 (pdftex.def)             Requested size: 345.0pt x 143.37999pt.
- [22 <./pictures/T4-3.png>]
-<pictures/T5-1.png, id=351, 675.12225pt x 457.10776pt>
+ [23 <./pictures/T4-3.png>]
+<pictures/T5-1.png, id=367, 675.12225pt x 457.10776pt>
 File: pictures/T5-1.png Graphic file (type png)
 <use pictures/T5-1.png>
-Package pdftex.def Info: pictures/T5-1.png  used on input line 510.
+Package pdftex.def Info: pictures/T5-1.png  used on input line 536.
 (pdftex.def)             Requested size: 345.0pt x 233.59616pt.
- [23 <./pictures/T5-1.png>]
-<pictures/T5-2.png, id=357, 616.10175pt x 500.46976pt>
+ [24 <./pictures/T5-1.png>]
+<pictures/T5-2.png, id=373, 616.10175pt x 500.46976pt>
 File: pictures/T5-2.png Graphic file (type png)
 <use pictures/T5-2.png>
-Package pdftex.def Info: pictures/T5-2.png  used on input line 523.
+Package pdftex.def Info: pictures/T5-2.png  used on input line 549.
 (pdftex.def)             Requested size: 345.0pt x 280.24586pt.
- [24 <./pictures/T5-2.png>]
-<pictures/T5-3.png, id=363, 546.24075pt x 431.81325pt>
+ [25 <./pictures/T5-2.png>]
+<pictures/T5-3.png, id=380, 546.24075pt x 431.81325pt>
 File: pictures/T5-3.png Graphic file (type png)
 <use pictures/T5-3.png>
-Package pdftex.def Info: pictures/T5-3.png  used on input line 536.
+Package pdftex.def Info: pictures/T5-3.png  used on input line 562.
 (pdftex.def)             Requested size: 345.0pt x 272.73561pt.
- [25 <./pictures/T5-3.png>] [26]
-(Test_Cases.aux)
+ [26 <./pictures/T5-3.png>] [27] (Test_Cases.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Test_Cases.out' has not changed.
-(rerunfilecheck)             Checksum: AC8E26E3C1C0CD3ECE9DC990FAE501DB;11015.
+(rerunfilecheck)             Checksum: C4D90B6D401E67D488308FA65D315D4F;11872.
  ) 
 Here is how much of TeX's memory you used:
- 11492 strings out of 475385
- 184993 string characters out of 2777379
- 740075 words of memory out of 3000000
- 32587 multiletter control sequences out of 15000+600000
+ 11513 strings out of 475385
+ 185380 string characters out of 2777379
+ 740073 words of memory out of 3000000
+ 32601 multiletter control sequences out of 15000+600000
  474862 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  82i,7n,90p,531b,1540s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -614,9 +631,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ASUS/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ASUS/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ASUS/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Test_Cases.pdf (26 pages, 1227187 bytes).
+Output written on Test_Cases.pdf (27 pages, 1360131 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 134 named destinations out of 1000 (max. 500000)
- 420 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 461 PDF objects out of 1000 (max. 8388607)
+ 139 named destinations out of 1000 (max. 500000)
+ 446 words of extra memory for PDF output out of 10000 (max. 10000000)
 

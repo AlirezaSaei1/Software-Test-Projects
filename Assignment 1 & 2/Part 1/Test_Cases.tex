@@ -1,4 +1,12 @@
 \documentclass{article}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\newmdenv[linecolor=black,linewidth=1.5pt]{codebox}
+
+
 
 \title{\textbf{Software Testing Assignment 1}}
 \author{\textbf{Alireza Dastmalchi Saei}\\\\
@@ -8,6 +16,14 @@
 \date{\today}
 
 \begin{document}
+
+\pretitle{
+  \begin{center}
+  \LARGE
+  \includegraphics[width=0.4\textwidth]{pictures/university-of-isfahan-logo.png}\\[\bigskipamount]
+}
+\posttitle{\end{center}\vspace{3\baselineskip}}
+
 
 \maketitle
 
@@ -272,5 +288,242 @@ Someone wants to exchange his/her ticket, the exchanging process must be correct
 \textbf{Then} $\rightarrow$ Exchange must be done for a trip
 
 \pagebreak
+
+
+\section{Code Explanation and Report}
+ Overall 14 test have been written (11 with JUnit and 3 with Gherkin). We will go through each one of them and explain in details if required.
+ 
+ \bigskip
+ 
+ \subsection{Setting Up Tests}
+Setting up JUnit and Cucumber in a Maven project involves adding the necessary dependencies to the project's pom.xml file. JUnit is a widely-used testing framework for Java, while Cucumber facilitates behavior-driven development using Gherkin syntax. Below is an example passage describing how to set up these dependencies in a Maven project:\\
+
+Must add following dependencies:
+ \begin{codebox}
+ \begin{lstlisting}[language=xml]
+        <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>5.1.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>7.14.0</version>
+        </dependency>
+
+    </dependencies>
+    
+ \end{lstlisting}
+ \end{codebox}
+ 
+ \subsection{Preconditions}
+ All JUnit test require and instance of TicketReservationSystem for controlling code, so in our Test class there is a \textbf{@beforeeach} for creating the instance before running every unittest. 
+ 
+ \bigskip
+ 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T-B.png}
+  \caption{Method with beforeeach}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+ 
+\subsection{Scenario 1: City and Train Management}
+\subsubsection{Test Case 1.1: Add a New City}
+The code for testing if a city can be added correctly to the city list is given below:\\
+First, we create a list of cities with a size of 3. Then, a new city with the name of "California" is created and added to city list. With the variable $CityExists$ and iterating through the list of all available cities, we can check if the city is in the list or not.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T1-1.png}
+  \caption{Test Case 1.1}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 1.2: Add a New Train}
+This method, checks whether a new can be added in our TrainReservationSystem correctly or not. The snippet of code can be seen below:
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T1-2.png}
+  \caption{Test Case 1.2}
+  \label{fig:your_label}
+\end{figure}
+
+\bigskip
+
+As can be seen, in this test method, an initial list of 3 trains is created. Then, a new instance of train with the name of $Bullet Train$ is created and added to the list of trains. The foreach loop after adding the train, checks for the correction of process of adding new trains. The value of $trainExists$ must be true after iterating $trains$ list.
+
+\pagebreak
+
+\subsection{Scenario 2: Trip Management}
+\subsubsection{Test Case 2.1: Create a New Trip}
+This unittest is for testing the $createTrip$ method in the class "TrainReservationSystem". In the code, 2 trips are created and the expected list length of the trips is asserted to be 2.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T2-1.png}
+  \caption{Test Case 2.1}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 2.2: Cancel Trip}
+This test case is for checking if a valid trip can be canceled correctly or not. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T2-2.png}
+  \caption{Test Case 2.2}
+  \label{fig:your_label}
+\end{figure}
+
+In the code above, first we create an instance of objects needed for creating a trip, After creating the trip, we cancel the same trip created before and then check for the length of trip lists to be reduced by 1 (In this case: 0).
+
+\pagebreak
+
+\subsection{Scenario 3: Ticket Booking and Cancellation}
+\subsubsection{Test Case 3.1: Book a Ticket}
+
+In this test case, we verify the system's ability to successfully book a ticket for a specified trip. The test involves creating a trip, attempting to book a ticket, and ensuring that the booked ticket is correctly registered in the system.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T3-1.png}
+  \caption{Test Case 3.1}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 3.2: Cancel a Ticket}
+
+This test case assesses the functionality of canceling a previously booked ticket. After booking a ticket in a given trip, the system is tested to confirm that the cancellation process correctly removes the ticket from the booked tickets list.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T3-2.png}
+  \caption{Test Case 3.2}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 3.3: Book a Ticket for a Full Trip}
+
+This test examines the system's behavior when attempting to book a ticket for a trip that has reached its full capacity. It checks whether the system appropriately handles scenarios where the available seats on a train are already fully booked.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T3-3.png}
+  \caption{Test Case 3.3}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsection{Scenario 4: Delay Management}
+\subsubsection{Test Case 4.1: Add Departure Delay to a Trip}
+
+This test case verifies the system's ability to handle and correctly reflect a departure delay for a given trip. The test involves creating a trip, adding a departure delay, and checking if the system accurately records and applies the delay to the trip's schedule.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T4-1.png}
+  \caption{Test Case 4.1}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 4.2: Add Arrival Delay to a Trip}
+
+In this test case, the system's response to adding an arrival delay to a trip is evaluated. After introducing an arrival delay, the test checks whether the system appropriately updates the trip's arrival time, considering the delay.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T4-2.png}
+  \caption{Test Case 4.2}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Test Case 4.3: Add Departure Delay More Than Duration to Pass Arrival Date}
+
+This test examines the system's behavior when attempting to add a departure delay that surpasses the duration needed to reach the trip's arrival date. The goal is to ensure that the system handles such cases gracefully, preventing unrealistic delays that would exceed the arrival date.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T4-3.png}
+  \caption{Test Case 4.2}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsection{Scenario 5: Exchange Management}
+\subsection{Gherkin 5.1: Find All Exchangeable Tickets}
+
+This Gherkin scenario outlines the steps to find all tickets that are available for exchange within the system. It likely involves identifying criteria for exchange eligibility and presenting a list of tickets that meet these criteria.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T5-1.png}
+  \caption{Gherkin 5.1}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsection{Gherkin 5.2: Get previous and Next Trip of a Train}
+
+This Gherkin scenario focuses on retrieving information about the previous and next trips of a train. It involves interacting with the system to obtain details about the chronological order of train trips, helping users plan and manage their travel effectively.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T5-2.png}
+  \caption{Gherkin 5.2}
+  \label{fig:your_label}
+\end{figure}
+
+\pagebreak
+
+\subsection{Gherkin 5.3: Exchange a Ticket successfully}
+
+This Gherkin scenario describes the steps for successfully exchanging a ticket. It includes the process of selecting a ticket for exchange, verifying its eligibility, and executing the exchange operation, ensuring that the system handles the exchange seamlessly.
+ 
+ \begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{pictures/T5-3.png}
+  \caption{Gherkin 5.3}
+  \label{fig:your_label}
+\end{figure}
+ 
+\pagebreak
+
+\section{Explanation Video Link}
+
+Click \href{https://www.example.com}{here} to see the video recorded for this Assignment.
 
 \end{document}

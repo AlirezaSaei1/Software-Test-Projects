@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.26)  24 NOV 2023 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.26)  24 NOV 2023 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -69,30 +69,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
  []
 
 [2] [3] [4] [5] [6] [7] [8]
-Overfull \hbox (31.32289pt too wide) in paragraph at lines 242--242
-[]\OT1/cmr/bx/n/14.4 Test Sce-nario 5: Ex-change Man-age-ment (Gherkin) 
- []
-
-[9] (Test_Cases.aux) ) 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 248.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 248.
+ [9] (Test_Cases.aux) ) 
 Here is how much of TeX's memory you used:
- 461 strings out of 475385
- 8881 string characters out of 2777379
+ 463 strings out of 475385
+ 8909 string characters out of 2777379
  354776 words of memory out of 3000000
- 21910 multiletter control sequences out of 15000+600000
+ 21912 multiletter control sequences out of 15000+600000
  474862 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,6n,38p,492b,278s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\ASUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
-ppen/ec/dpi600\tcrm1000.pk><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ASUS/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/ASUS/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ASUS/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/AS
-US/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Test_Cases.pdf (9 pages, 102304 bytes).
+ <C:\Users\ASUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\tcrm1000.pk><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ASUS/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/ASUS/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ASUS/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/A
+SUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12
+.pfb>
+Output written on Test_Cases.pdf (9 pages, 112992 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

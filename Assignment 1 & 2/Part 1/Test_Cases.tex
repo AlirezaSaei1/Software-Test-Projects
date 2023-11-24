@@ -222,7 +222,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \hrule
 \bigskip
 
-\subsection{Test Case 4.3: Add Departure Delay more than Duration to pass arrival date}
+\subsection{Test Case 4.3: Add Departure Delay More Than Duration to Pass Arrival Date}
 
 \textbf{Description:} Verify that a departure date cannot pass arrival time after being delayed.\\
 \textbf{Preconditions:}
@@ -239,10 +239,38 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \pagebreak
 
-\section{Test Scenario 5: Exchange Management (Gherkin)}
+\section{Test Scenario 5: Exchange Management (Cucumber)}
 \bigskip
 \bigskip
-\subsection{Test Case 5.1: X}
+\subsection{Gherkin 5.1: Find All Exchangeable Tickets}
 
+Someone wants to exchange his/her ticket, available tickets for exchanges will be shown\\
+\textbf{Given} $\rightarrow$ Exchange requirements are met \\
+\textbf{When} $\rightarrow$ Request to see available tickets for exchange \\
+\textbf{Then} $\rightarrow$ A list of all available tickets are shown
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Gherkin 5.2: Get previous and Next Trip of a Train}
+
+Someone has a trip of a train and wants to see previous and next trip of that train\\
+\textbf{Given} $\rightarrow$ Train has more that three trips and has a previous and next trip \\
+\textbf{When} $\rightarrow$ Request to see available earlier and later trips of a train \\
+\textbf{Then} $\rightarrow$ The correct successor and predecessor trips are shown
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Gherkin 5.3: Exchange a Ticket successfully}
+
+Someone wants to exchange his/her ticket, the exchanging process must be correct\\
+\textbf{Given} $\rightarrow$ Exchanging requirements are met \\
+\textbf{When} $\rightarrow$ Request to exchange a ticket from a trip \\
+\textbf{Then} $\rightarrow$ Exchange must be done for a trip
+
+\pagebreak
 
 \end{document}

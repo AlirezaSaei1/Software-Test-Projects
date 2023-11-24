@@ -243,5 +243,5 @@ public class Tests {
         assertTrue(trip.findRealArrivalTime().isAfter(trip.findRealDepartureTime()));
     }
 
-    // Scenario 5: Exchange Management
+    // Scenario 5: Exchange Management -> Cucumber
 }

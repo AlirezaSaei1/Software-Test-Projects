@@ -1,16 +1,28 @@
 \documentclass{article}
 
-\title{Test Cases}
-\author{Alireza Dastmalchi Saei}
+\title{\textbf{Software Testing Assignment 1}}
+\author{\textbf{Alireza Dastmalchi Saei}\\\\
+    \textit{\textbf{Student ID:} 993613026}\\\\
+    \textit{\textbf{University:} University of Isfahan}\\\\
+    \textit{\textbf{Course:} Software Testing Course}\\}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
+\pagebreak
+
 \section{Introduction}
 
-This is the introduction section of my document.
+
+In this comprehensive report, we embark on an exploration and evaluation of a Train Reservation System using a dual-approach testing methodology. Leveraging the power of JUnit and Gherkin, we conduct a thorough examination of the system's functionalities, ensuring its robustness, reliability, and adherence to business requirements.\\
+
+JUnit, a widely adopted testing framework for Java applications, provides a solid foundation for scenario-based testing. Through the creation of five detailed scenarios, we utilize JUnit to meticulously assess various aspects of the Train Reservation System. These scenarios encompass critical functionalities such as City and Train Management, Trip Management, Ticket Booking and Cancellation, Delay Management, and Exchange Management (With Gherkin).\\
+
+Complementing our JUnit tests, we employ Gherkin, a language-agnostic format, to write three additional scenarios. Gherkin facilitates Behavior-Driven Development (BDD) by allowing us to describe system behavior in a natural language format that is easily understandable by both technical and non-technical stakeholders.\\
+
+This integrated approach ensures a comprehensive evaluation of the Train Reservation System, covering both the low-level unit testing provided by JUnit and the high-level behavioral testing facilitated by Gherkin. By combining these two testing methodologies, we aim to provide a robust and thorough validation of the system's functionality, ensuring its readiness for deployment in real-world scenarios.
 
 \pagebreak
 
@@ -90,6 +102,25 @@ This is the introduction section of my document.
   \item Select a trip to cancel
 \end{enumerate}
 \textbf{Expected Result:} The selected trip should be canceled, and all associated tickets should also be canceled.
+
+\bigskip
+\hrule
+\bigskip
+
+\subsection{Test Case 2.3: Add a trip with conflicting timings to a train}
+
+\textbf{Description:} Verify that a trip with conflicting times cannot be added to the train trips list.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+  \item The user is authorized to add a trip.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Add a valid trip to train
+  \item Add a new trip that has intercepting times with previous trip
+\end{enumerate}
+\textbf{Expected Result:} The second should not be added to the trips list of the train, and a trip exception must be thrown.
 
 \pagebreak
 
@@ -208,7 +239,7 @@ This is the introduction section of my document.
 
 \pagebreak
 
-\section{Test Scenario 5: X}
+\section{Test Scenario 5: Exchange Management (Gherkin)}
 \bigskip
 \bigskip
 \subsection{Test Case 5.1: X}

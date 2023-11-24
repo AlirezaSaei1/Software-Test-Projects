@@ -103,14 +103,35 @@ public class Tests {
     @Test
     public void cancelAnExistingTrip() throws TripException {
         Train train = new TrainImpl("Express Train", 200);
-        Instant departureTime = Instant.parse("2023-11-25T10:00:00Z");
-        Instant arrivalTime = Instant.parse("2023-11-28T14:00:00Z");
+        Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
 
         trs.cancelTrip(trip);
         List<Trip> trips = trs.getAllTrips();
         assertEquals(trips.toArray().length, 0);
+    }
+
+    @Test
+    public void createATripWithConflict() throws TripException{
+        City origin1 = new CityImpl("City A");
+        City destination1 = new CityImpl("City B");
+        Train train = new TrainImpl("Express Train", 200);
+        Instant departureTime1 = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
+        Instant arrivalTime1 = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
+
+        Trip trip1 = trs.createTrip(origin1, destination1, train, departureTime1, arrivalTime1);
+
+
+        City origin2 = new CityImpl("City C");
+        City destination2 = new CityImpl("City D");
+        Instant departureTime2 = TimeManagement.createInstant("2023-11-26 08:30", zoneId);
+        Instant arrivalTime2 = TimeManagement.createInstant("2023-12-01 12:30", zoneId);
+
+        assertThrows(TripException.class, () -> {
+            Trip trip2 = trs.createTrip(origin2, destination2, train, departureTime2, arrivalTime2);
+        });
     }
 
     // Scenario 3: Ticket Booking and Cancellation

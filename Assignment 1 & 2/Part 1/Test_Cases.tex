@@ -354,8 +354,8 @@ Must add following dependencies:
  \end{codebox}
 
  \subsection{Preconditions}
- All JUnit test require and instance of TicketReservationSystem for controlling code, so in our Test class there is a \textbf{@beforeeach} for creating the instance before running every unittest.
-
+In the context of JUnit testing, preconditions refer to the necessary conditions that must be satisfied before executing any test. In our case, each JUnit test requires a properly initialized instance of TicketReservationSystem to control and assess the behavior of the underlying code. \\\\\\
+To enforce a consistent setup before each test, the @BeforeEach annotation is utilized in the JUnit testing framework. This annotation signifies that a designated setup method should be executed before the commencement of each individual test. In our scenario, this setup method is responsible for creating and configuring the essential instance of TicketReservationSystem.
  \bigskip
 
 \begin{figure}[h]
@@ -364,6 +364,8 @@ Must add following dependencies:
   \caption{Method with beforeeach}
   \label{fig:your_label}
 \end{figure}
+
+Other preconditions are not unique amongst test cases to, some preconditions are created in each test method individually. 
 
 \pagebreak
 
@@ -421,7 +423,7 @@ This test case is for checking if a valid trip can be canceled correctly or not.
 
 In the code above, first we create an instance of objects needed for creating a trip, After creating the trip, we cancel the same trip created before and then check for the length of trip lists to be reduced by 1 (In this case: 0).
 
-\pagebreak
+
 
 \subsubsection{Test Case 2.3: Add a trip with conflicting timings to a train}
 In this test case, we try to create two trips for a train that they have conflicting timings and one cannot be created.

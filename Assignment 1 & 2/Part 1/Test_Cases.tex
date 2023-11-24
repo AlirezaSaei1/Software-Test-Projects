@@ -8,7 +8,7 @@
 
 
 
-\title{\textbf{Software Testing Assignment 1}}
+\title{\textbf{Software Testing Assignment One and Two}}
 \author{\textbf{Alireza Dastmalchi Saei}\\\\
     \textit{\textbf{Student ID:} 993613026}\\\\
     \textit{\textbf{University:} University of Isfahan}\\\\
@@ -52,11 +52,12 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a new city.
-  \item There is new city to be added
+  \item Add 3 new cities with different names (e.g. Los Angeles, Washington, Texas) beforehand.
+  \item There is new city to be added with another name (e.g. California).
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add a new city to the system.
+  \item Add a new city to the system with $.addCity()$ method.
 \end{enumerate}
 \textbf{Expected Result:} The city should be added to the list of cities in the system.
 
@@ -72,11 +73,12 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a new train.
-  \item There is a new train to be added.
+  \item Add 3 new trains with different names (e.g. Bullet Train 1, 2, 3)
+  \item There is a new train (Bullet Train 4) to be added.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add a new train to the system.
+  \item Add a new train to the system using $.addTrains()$ method.
 \end{enumerate}
 \textbf{Expected Result:} The new train should be added to the list of trains in the system.
 
@@ -93,6 +95,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
   \item The system is running.
   \item The user is authorized to add a new trip.
   \item The new trip requirements are available to be created.
+  \item Create 2 trips (Trip1, Trip2).
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
@@ -101,6 +104,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
   \item Provide valid details for the new trip: Train
   \item Provide valid details for the new trip: Departure Time
   \item Provide valid details for the new trip: Arrival Time
+  \item Create trips using $.createTrip()$ method.
 \end{enumerate}
 \textbf{Expected Result:} The new trip should be created and registered in the system.
 
@@ -115,10 +119,11 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to cancel a trip.
+  \item There is a trip with 2 booked tickets in it.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Select a trip to cancel
+  \item Select a trip to cancel using $cancelTrip()$ method.
 \end{enumerate}
 \textbf{Expected Result:} The selected trip should be canceled, and all associated tickets should also be canceled.
 
@@ -133,13 +138,15 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a trip.
+  \item One trip has departure time of "2023-11-25 10:00", and with the arrival time of "2023-11-28 14:00".
+  \item Second trip has departure time of "2023-11-26 08:30", and with the arrival time of "2023-12-01 12:30".
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add a valid trip to train
-  \item Add a new trip that has intercepting times with previous trip
+  \item Add a the 1st trip to train using $createTrip()$ method.
+  \item Add a new trip (2nd one) that has intercepting times with previous trip.
 \end{enumerate}
-\textbf{Expected Result:} The second should not be added to the trips list of the train, and a trip exception must be thrown.
+\textbf{Expected Result:} The second should not be added to the trips list of the train, and a $TripException$ must be thrown.
 
 \bigskip
 \hrule
@@ -155,7 +162,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add an invalid trip to train (Departure time is after arrival time)
+  \item Add an invalid trip to train (Departure time ("2023-11-25 10:00") is after arrival time ("2023-10-25 14:00")).
 \end{enumerate}
 \textbf{Expected Result:} The trip must not be created and an exception must be thrown (TripException).
 
@@ -171,15 +178,15 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to book a ticket.
-  \item There is an available trip.
+  \item There is an available trip with available tickets to book.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Select and available trip
-  \item Provide passenger name
-  \item Book a ticket
+  \item Select the available trip mentioned above.
+  \item Provide passenger name (e.g. "Alireza").
+  \item Book a ticket.
 \end{enumerate}
-\textbf{Expected Result:}  A new ticket should be booked for the selected trip.
+\textbf{Expected Result:}  A new ticket should be booked for the selected trip and ticket must be in the booked tickets list of the associated trip.
 
 \bigskip
 \hrule
@@ -192,12 +199,13 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user has a booked ticket.
+  \item There is a trip with a booked ticket associated with it.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Select a booked ticket
+  \item Select the booked ticket from the trip mentioned.
 \end{enumerate}
-\textbf{Expected Result:} The selected ticket should be canceled, and the trip should be updated accordingly.
+\textbf{Expected Result:} The selected ticket should be canceled, and the trip's tickets list and canceled tickets list should be updated accordingly.
 
 \bigskip
 \hrule
@@ -205,16 +213,18 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \subsection{Test Case 3.3: Book a Ticket for a full trip}
 
-\textbf{Description:} Verify that a ticket for a full trip cannot be created.\\
+\textbf{Description:} Verify that a ticket for a trip with maximum passengers cannot be created.\\
 \textbf{Preconditions:}
 \begin{itemize}
   \item The system is running.
+  \item The trip has 3 available tickets to be booked.
+  \item All 3 of the tickets are booked by other people.  
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Create a ticket for a trip with max passengers
+  \item Create a ticket for a trip with max passengers for a new person.
 \end{enumerate}
-\textbf{Expected Result:} The ticket should not be booked and it must give an error.
+\textbf{Expected Result:} The ticket should not be booked and it must give an error (Throw $ReservationException$).
 
 \pagebreak
 
@@ -228,11 +238,12 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item There is a trip available for delay.
+  \item A delay of 1 day(s) 2 hour(s) is going to be added to the trip.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Select a trip
-  \item Add departure delay
+  \item Select the created trip.
+  \item Add departure delay with the mentioned amount of delay.
 \end{enumerate}
 \textbf{Expected Result:} The departure delay should be added to the trip, and the real departure time should be updated accordingly.
 
@@ -247,11 +258,12 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item There is a trip available for delay.
+  \item A delay of 1 day(s) 2 hour(s) is going to be added to the trip.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-    \item Select a trip
-    \item Add arrival delay
+    \item Select the created trip.
+    \item Add arrival delay with the mentioned amount of delay.
 \end{enumerate}
 \textbf{Expected Result:} The arrival delay should be added to the trip, and the real arrival time should be updated accordingly.
 
@@ -266,13 +278,15 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item There is a trip available for delay.
+  \item The trip has a departure time of "2023-11-25 10:00" and an arrival time of "2023-11-27 10:00".
+  \item We have a delay of 4 days.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-    \item Select a trip
-    \item Add departure delay more that duration
+    \item Select a trip.
+    \item Add departure delay (4 days) more that duration (2 days).
 \end{enumerate}
-\textbf{Expected Result:} The departure delay should not be added to the trip, or the arrival time must be updated.
+\textbf{Expected Result:} The departure delay should not be added to the trip, or the arrival time must be updated, or an Exception must be thrown.
 
 \pagebreak
 
@@ -281,10 +295,10 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \bigskip
 \subsection{Gherkin 5.1: Find All Exchangeable Tickets}
 
-Someone wants to exchange his/her ticket, available tickets for exchanges will be shown\\
-\textbf{Given} $\rightarrow$ Exchange requirements are met \\
+Someone wants to exchange his/her ticket, available tickets for exchanges must be shown for him/her to choose from them\\
+\textbf{Given} $\rightarrow$ we have 2 trips (Trip1 and Trip 2) and we book 1 ticket from trip1. \\
 \textbf{When} $\rightarrow$ Request to see available tickets for exchange \\
-\textbf{Then} $\rightarrow$ A list of all available tickets are shown
+\textbf{Then} $\rightarrow$ A list of all available tickets must be shown, in this case it is one (The length of the list must be 1).
 
 \bigskip
 \hrule
@@ -294,8 +308,8 @@ Someone wants to exchange his/her ticket, available tickets for exchanges will b
 
 Someone has a trip of a train and wants to see previous and next trip of that train\\
 \textbf{Given} $\rightarrow$ Train has more that three trips and has a previous and next trip \\
-\textbf{When} $\rightarrow$ Request to see available earlier and later trips of a train \\
-\textbf{Then} $\rightarrow$ The correct successor and predecessor trips are shown
+\textbf{When} $\rightarrow$ Request to see available earlier and later trips of a train (Assuming we have middle trip info)\\
+\textbf{Then} $\rightarrow$ The correct successor and predecessor trips are shown upon request
 
 \bigskip
 \hrule
@@ -304,15 +318,15 @@ Someone has a trip of a train and wants to see previous and next trip of that tr
 \subsection{Gherkin 5.3: Exchange a Ticket successfully}
 
 Someone wants to exchange his/her ticket, the exchanging process must be correct\\
-\textbf{Given} $\rightarrow$ Exchanging requirements are met \\
-\textbf{When} $\rightarrow$ Request to exchange a ticket from a trip \\
-\textbf{Then} $\rightarrow$ Exchange must be done for a trip
+\textbf{Given} $\rightarrow$ Exchanging requirements are met (There is a trip with 2 booked tickets that can be exchanged) \\
+\textbf{When} $\rightarrow$ Request to exchange a ticket from the mentioned trip \\
+\textbf{Then} $\rightarrow$ Exchange must be done for a trip and the exchanged ticket must be canceled and get moved to canceled tickets lists.
 
 \pagebreak
 
 
 \section{Code Explanation and Report}
- Overall 14 test have been written (11 with JUnit and 3 with Gherkin). We will go through each one of them and explain in details if required.
+ Overall 15 test have been written (12 with JUnit and 3 with Gherkin). We will go through each one of them and explain in details if required.
 
  \bigskip
 
@@ -320,39 +334,14 @@ Someone wants to exchange his/her ticket, the exchanging process must be correct
 Setting up JUnit and Cucumber in a Maven project involves adding the necessary dependencies to the project's pom.xml file. JUnit is a widely-used testing framework for Java, while Cucumber facilitates behavior-driven development using Gherkin syntax. Below is an example passage describing how to set up these dependencies in a Maven project:\\
 
 Must add following dependencies:
- \begin{codebox}
- \begin{lstlisting}[language=xml]
-        <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.1</version>
-            <scope>test</scope>
-        </dependency>
+ \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{pictures/deps.png}
+  \caption{Required Dependencies}
+  \label{fig:your_label}
+\end{figure}
 
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>5.1.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.14.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>7.14.0</version>
-        </dependency>
-
-    </dependencies>
-
- \end{lstlisting}
- \end{codebox}
-
+\pagebreak
  \subsection{Preconditions}
 In the context of JUnit testing, preconditions refer to the necessary conditions that must be satisfied before executing any test. In our case, each JUnit test requires a properly initialized instance of TicketReservationSystem to control and assess the behavior of the underlying code. \\\\\\
 To enforce a consistent setup before each test, the @BeforeEach annotation is utilized in the JUnit testing framework. This annotation signifies that a designated setup method should be executed before the commencement of each individual test. In our scenario, this setup method is responsible for creating and configuring the essential instance of TicketReservationSystem.

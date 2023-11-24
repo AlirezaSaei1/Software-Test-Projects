@@ -42,7 +42,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \pagebreak
 
-\section{Test Scenario 1: City and Train Management}
+\section{Section 1: City and Train Management}
 \bigskip
 \bigskip
 \subsection{Test Case 1.1: Add a New City}
@@ -52,10 +52,11 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a new city.
+  \item There is new city to be added
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add a new city.
+  \item Add a new city to the system.
 \end{enumerate}
 \textbf{Expected Result:} The city should be added to the list of cities in the system.
 
@@ -71,16 +72,17 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a new train.
+  \item There is a new train to be added.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
-  \item Add a new train.
+  \item Add a new train to the system.
 \end{enumerate}
 \textbf{Expected Result:} The new train should be added to the list of trains in the system.
 
 \pagebreak
 
-\section{Test Scenario 2: Trip Management}
+\section{Section 2: Trip Management}
 \bigskip
 \bigskip
 \subsection{Test Case 2.1: Create a New Trip}
@@ -90,6 +92,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 \begin{itemize}
   \item The system is running.
   \item The user is authorized to add a new trip.
+  \item The new trip requirements are available to be created.
 \end{itemize}
 \textbf{Steps:}
 \begin{enumerate}
@@ -140,7 +143,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \pagebreak
 
-\section{Test Scenario 3: Ticket Booking and Cancellation}
+\section{Section 3: Ticket Booking and Cancellation}
 \bigskip
 \bigskip
 \subsection{Test Case 3.1: Book a Ticket}
@@ -197,7 +200,22 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \pagebreak
 
-\section{Test Scenario 4: Delay Management}
+\subsection{Test Case 3.3: Book a Ticket for a full trip}
+
+\textbf{Description:} Verify that a ticket for a full trip cannot be created.\\
+\textbf{Preconditions:}
+\begin{itemize}
+  \item The system is running.
+\end{itemize}
+\textbf{Steps:}
+\begin{enumerate}
+  \item Create a ticket for a trip with max passengers
+\end{enumerate}
+\textbf{Expected Result:} The ticket should not be booked and it must give an error.
+
+\pagebreak
+
+\section{Section 4: Delay Management}
 \bigskip
 \bigskip
 \subsection{Test Case 4.1: Add Departure Delay to a Trip}
@@ -255,7 +273,7 @@ This integrated approach ensures a comprehensive evaluation of the Train Reserva
 
 \pagebreak
 
-\section{Test Scenario 5: Exchange Management (Cucumber)}
+\section{Section 5: Exchange Management (Cucumber)}
 \bigskip
 \bigskip
 \subsection{Gherkin 5.1: Find All Exchangeable Tickets}
@@ -292,9 +310,9 @@ Someone wants to exchange his/her ticket, the exchanging process must be correct
 
 \section{Code Explanation and Report}
  Overall 14 test have been written (11 with JUnit and 3 with Gherkin). We will go through each one of them and explain in details if required.
- 
+
  \bigskip
- 
+
  \subsection{Setting Up Tests}
 Setting up JUnit and Cucumber in a Maven project involves adding the necessary dependencies to the project's pom.xml file. JUnit is a widely-used testing framework for Java, while Cucumber facilitates behavior-driven development using Gherkin syntax. Below is an example passage describing how to set up these dependencies in a Maven project:\\
 
@@ -328,15 +346,15 @@ Must add following dependencies:
         </dependency>
 
     </dependencies>
-    
+
  \end{lstlisting}
  \end{codebox}
- 
+
  \subsection{Preconditions}
- All JUnit test require and instance of TicketReservationSystem for controlling code, so in our Test class there is a \textbf{@beforeeach} for creating the instance before running every unittest. 
- 
+ All JUnit test require and instance of TicketReservationSystem for controlling code, so in our Test class there is a \textbf{@beforeeach} for creating the instance before running every unittest.
+
  \bigskip
- 
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=1.0\textwidth]{pictures/T-B.png}
@@ -345,8 +363,8 @@ Must add following dependencies:
 \end{figure}
 
 \pagebreak
- 
-\subsection{Scenario 1: City and Train Management}
+
+\subsection{Section 1: City and Train Management}
 \subsubsection{Test Case 1.1: Add a New City}
 The code for testing if a city can be added correctly to the city list is given below:\\
 First, we create a list of cities with a size of 3. Then, a new city with the name of "California" is created and added to city list. With the variable $CityExists$ and iterating through the list of all available cities, we can check if the city is in the list or not.
@@ -375,7 +393,7 @@ As can be seen, in this test method, an initial list of 3 trains is created. The
 
 \pagebreak
 
-\subsection{Scenario 2: Trip Management}
+\subsection{Section 2: Trip Management}
 \subsubsection{Test Case 2.1: Create a New Trip}
 This unittest is for testing the $createTrip$ method in the class "TrainReservationSystem". In the code, 2 trips are created and the expected list length of the trips is asserted to be 2.
 
@@ -389,7 +407,7 @@ This unittest is for testing the $createTrip$ method in the class "TrainReservat
 \pagebreak
 
 \subsubsection{Test Case 2.2: Cancel Trip}
-This test case is for checking if a valid trip can be canceled correctly or not. 
+This test case is for checking if a valid trip can be canceled correctly or not.
 
 \begin{figure}[h]
   \centering
@@ -402,7 +420,7 @@ In the code above, first we create an instance of objects needed for creating a 
 
 \pagebreak
 
-\subsection{Scenario 3: Ticket Booking and Cancellation}
+\subsection{Section 3: Ticket Booking and Cancellation}
 \subsubsection{Test Case 3.1: Book a Ticket}
 
 In this test case, we verify the system's ability to successfully book a ticket for a specified trip. The test involves creating a trip, attempting to book a ticket, and ensuring that the booked ticket is correctly registered in the system.
@@ -442,7 +460,7 @@ This test examines the system's behavior when attempting to book a ticket for a 
 
 \pagebreak
 
-\subsection{Scenario 4: Delay Management}
+\subsection{Section 4: Delay Management}
 \subsubsection{Test Case 4.1: Add Departure Delay to a Trip}
 
 This test case verifies the system's ability to handle and correctly reflect a departure delay for a given trip. The test involves creating a trip, adding a departure delay, and checking if the system accurately records and applies the delay to the trip's schedule.
@@ -482,8 +500,8 @@ This test examines the system's behavior when attempting to add a departure dela
 
 \pagebreak
 
-\subsection{Scenario 5: Exchange Management}
-\subsection{Gherkin 5.1: Find All Exchangeable Tickets}
+\subsection{Section 5: Exchange Management}
+\subsubsection{Gherkin 5.1: Find All Exchangeable Tickets}
 
 This Gherkin scenario outlines the steps to find all tickets that are available for exchange within the system. It likely involves identifying criteria for exchange eligibility and presenting a list of tickets that meet these criteria.
 
@@ -496,7 +514,7 @@ This Gherkin scenario outlines the steps to find all tickets that are available 
 
 \pagebreak
 
-\subsection{Gherkin 5.2: Get previous and Next Trip of a Train}
+\subsubsection{Gherkin 5.2: Get previous and Next Trip of a Train}
 
 This Gherkin scenario focuses on retrieving information about the previous and next trips of a train. It involves interacting with the system to obtain details about the chronological order of train trips, helping users plan and manage their travel effectively.
 
@@ -509,17 +527,17 @@ This Gherkin scenario focuses on retrieving information about the previous and n
 
 \pagebreak
 
-\subsection{Gherkin 5.3: Exchange a Ticket successfully}
+\subsubsection{Gherkin 5.3: Exchange a Ticket successfully}
 
 This Gherkin scenario describes the steps for successfully exchanging a ticket. It includes the process of selecting a ticket for exchange, verifying its eligibility, and executing the exchange operation, ensuring that the system handles the exchange seamlessly.
- 
+
  \begin{figure}[h]
   \centering
   \includegraphics[width=1.0\textwidth]{pictures/T5-3.png}
   \caption{Gherkin 5.3}
   \label{fig:your_label}
 \end{figure}
- 
+
 \pagebreak
 
 \section{Explanation Video Link}

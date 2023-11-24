@@ -52,6 +52,7 @@ public class ExchangeTicketStepDefinition {
 
     @Then("Exchange must be done for a trip")
     public void exchange_must_be_done_for_a_trip() {
+        assertFalse(trip.getCancelledTickets().isEmpty());
         assertTrue(t.isCancelled());
     }
 }

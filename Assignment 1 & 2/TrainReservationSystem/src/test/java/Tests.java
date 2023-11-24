@@ -27,7 +27,7 @@ public class Tests {
         destination = new CityImpl("City B");
     }
 
-    // Scenario 1: City and Train Management
+    // Group 1: City and Train Management
     @Test
     public void addNewCity(){
         // Add a city to the system before executing the test
@@ -54,14 +54,14 @@ public class Tests {
 
     @Test
     public void AddNewTrain(){
-        Train train1 = new TrainImpl("Bullet Train", 100);
+        Train train1 = new TrainImpl("Bullet Train 1", 100);
         trs.addTrain(train1);
-        Train train2 = new TrainImpl("Bullet Train", 100);
+        Train train2 = new TrainImpl("Bullet Train 2", 100);
         trs.addTrain(train2);
-        Train train3 = new TrainImpl("Bullet Train", 100);
+        Train train3 = new TrainImpl("Bullet Train 3", 100);
         trs.addTrain(train3);
 
-        Train train = new TrainImpl("Bullet Train", 100);
+        Train train = new TrainImpl("Bullet Train 4", 100);
         trs.addTrain(train);
 
         List<Train> trains = trs.getAllTrains();
@@ -76,7 +76,7 @@ public class Tests {
         assertTrue(trainExists);
     }
 
-    // Scenario 2: Trip Management
+    // Group 2: Trip Management
     @Test
     public void createNewValidTrip() throws TripException {
         City origin1 = new CityImpl("City A");
@@ -101,16 +101,23 @@ public class Tests {
     }
 
     @Test
-    public void cancelAnExistingTrip() throws TripException {
+    public void cancelAnExistingTrip() throws TripException, ReservationException{
         Train train = new TrainImpl("Express Train", 200);
         Instant departureTime = TimeManagement.createInstant("2023-11-25 10:00", zoneId);
         Instant arrivalTime = TimeManagement.createInstant("2023-11-28 14:00", zoneId);
 
         Trip trip = trs.createTrip(origin, destination, train, departureTime, arrivalTime);
 
+        trip.bookTicket("Alireza Saei");
+        trip.bookTicket("Martin Luther King");
+
         trs.cancelTrip(trip);
         List<Trip> trips = trs.getAllTrips();
+        List<Trip>canceled_trips = trs.getAllCancelledTrips();
+
         assertEquals(trips.toArray().length, 0);
+        assertFalse(canceled_trips.isEmpty());
+        assertEquals(trip.getCancelledTickets().size(), 2);
     }
 
     @Test
@@ -134,7 +141,7 @@ public class Tests {
         });
     }
 
-    // Scenario 3: Ticket Booking and Cancellation
+    // Group 3: Ticket Booking and Cancellation
     @Test
     public void bookingATicket() throws TripException, ReservationException {
         Train train = new TrainImpl("Express Train", 200);
@@ -187,7 +194,7 @@ public class Tests {
         });
     }
 
-    // Scenario 4: Delay Management
+    // Group 4: Delay Management
     @Test
     public void addDepartureDelayToATrip() throws TripException{
         Train train = new TrainImpl("Express Train", 3);
@@ -204,6 +211,8 @@ public class Tests {
         assertEquals(trip.getDepartureDelay(), dur_merged);
         assertEquals(trip.findRealDepartureTime(), TimeManagement.createInstant("2023-11-26 12:00", zoneId));
         assertEquals(trip.getPlannedDepartureTime(), departureTime);
+        assertEquals(trip.findPlannedDuration(), Duration.between(departureTime, arrivalTime));
+        assertEquals(trip.findRealDuration(), Duration.between(departureTime.plus(dur_merged), arrivalTime));
     }
 
     @Test
@@ -223,6 +232,8 @@ public class Tests {
         assertEquals(trip.getArrivalDelay(), dur_merged);
         assertEquals(trip.findRealArrivalTime(), TimeManagement.createInstant("2023-11-29 16:00", zoneId));
         assertEquals(trip.getPlannedArrivalTime(), arrivalTime);
+        assertEquals(trip.findPlannedDuration(), Duration.between(departureTime, arrivalTime));
+        assertEquals(trip.findRealDuration(), Duration.between(departureTime, arrivalTime.plus(dur_merged)));
     }
 
     @Test
@@ -243,5 +254,5 @@ public class Tests {
         assertTrue(trip.findRealArrivalTime().isAfter(trip.findRealDepartureTime()));
     }
 
-    // Scenario 5: Exchange Management -> Cucumber
+    // Group 5: Exchange Management -> Cucumber
 }

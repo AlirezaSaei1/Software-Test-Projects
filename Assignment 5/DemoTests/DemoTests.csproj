@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51F692B9-CF3A-4515-928B-E02C4D7C9327}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>new_test_project</RootNamespace>
+    <AssemblyName>new-test-project</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    
+    
+    
+    
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="ArtOfTest.WebAii" />
+    <Reference Include="ArtOfTest.WebAii.Design" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Telerik.TestingFramework.Controls.KendoUI.Angular, Version=2012.1.322.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.TestStudio.Translators.Common, Version=2012.1.322.0, Culture=neutral, PublicKeyToken=528163f3e645de45, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.WebAii.Controls.Html" />
+    <Reference Include="Telerik.WebAii.Controls.Xaml" />
+    <Reference Include="Telerik.TestingFramework.Controls.KendoUI" />
+    <Reference Include="Telerik.WebAii.Controls.Xaml.Wpf" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FindElementHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test #4 - Search a grid, verify specifc search result is in the grid.tstest.cs">
+      <DependentUpon>Test #4 - Search a grid, verify specifc search result is in the grid.tstest</DependentUpon>
+    </Compile>
+    <Compile Include="Test #6 - Delete multiple messages, verify deletion.tstest.cs">
+      <DependentUpon>Test #6 - Delete multiple messages, verify deletion.tstest</DependentUpon>
+    </Compile>
+    <None Include="Data\DataForTest3.xls" />
+    <None Include="nested test steps\for Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="nested test steps\Login with correct credentials.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Settings.aiis" />
+    <None Include="Test #0 - Attempt login with invalid credentials, verify correct error message.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #1 - Attempt login with valid credentials, verify successful.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #2 - Fill Out and Submitting a form %28containing multiple fields%29.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #4 - Search a grid, verify specifc search result is in the grid.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #5 - Choose specifc item from a grid and delete it, verify deletion.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #6 - Delete multiple messages, verify deletion.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #7 - Failing Test.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #8 - Element not found.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Test #9 - Attempt login via Image Search.tstest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="nested test steps\for Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.resx">
+      <DependentUpon>for Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest</DependentUpon>
+    </None>
+     <None Include="nested test steps\for Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.imgstore">
+      <DependentUpon>for Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest</DependentUpon>
+    </None>
+    <None Include="nested test steps\Login with correct credentials.resx">
+      <DependentUpon>Login with correct credentials.tstest</DependentUpon>
+    </None>
+     <None Include="nested test steps\Login with correct credentials.imgstore">
+      <DependentUpon>Login with correct credentials.tstest</DependentUpon>
+    </None>
+    <None Include="Test #0 - Attempt login with invalid credentials, verify correct error message.resx">
+      <DependentUpon>Test #0 - Attempt login with invalid credentials, verify correct error message.tstest</DependentUpon>
+    </None>
+    <None Include="Test #0 - Attempt login with invalid credentials, verify correct error message.imgstore">
+      <DependentUpon>Test #0 - Attempt login with invalid credentials, verify correct error message.tstest</DependentUpon>
+    </None>
+    <None Include="Test #1 - Attempt login with valid credentials, verify successful.resx">
+      <DependentUpon>Test #1 - Attempt login with valid credentials, verify successful.tstest</DependentUpon>
+    </None>
+    <None Include="Test #1 - Attempt login with valid credentials, verify successful.imgstore">
+      <DependentUpon>Test #1 - Attempt login with valid credentials, verify successful.tstest</DependentUpon>
+    </None>
+    <None Include="Test #2 - Fill Out and Submitting a form %28containing multiple fields%29.resx">
+      <DependentUpon>Test #2 - Fill Out and Submitting a form %28containing multiple fields%29.tstest</DependentUpon>
+    </None>
+    <None Include="Test #2 - Fill Out and Submitting a form %28containing multiple fields%29.imgstore">
+      <DependentUpon>Test #2 - Fill Out and Submitting a form %28containing multiple fields%29.tstest</DependentUpon>
+    </None>
+    <None Include="Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.resx">
+      <DependentUpon>Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest</DependentUpon>
+    </None>
+    <None Include="Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.imgstore">
+      <DependentUpon>Test #3 - Fill Out and Submitting a form %28containing multiple fields%29 %28data-driven%29.tstest</DependentUpon>
+    </None>
+    <None Include="Test #4 - Search a grid, verify specifc search result is in the grid.resx">
+      <DependentUpon>Test #4 - Search a grid, verify specifc search result is in the grid.tstest</DependentUpon>
+    </None>
+    <None Include="Test #4 - Search a grid, verify specifc search result is in the grid.imgstore">
+      <DependentUpon>Test #4 - Search a grid, verify specifc search result is in the grid.tstest</DependentUpon>
+    </None>
+    <None Include="Test #5 - Choose specifc item from a grid and delete it, verify deletion.resx">
+      <DependentUpon>Test #5 - Choose specifc item from a grid and delete it, verify deletion.tstest</DependentUpon>
+    </None>
+    <None Include="Test #5 - Choose specifc item from a grid and delete it, verify deletion.imgstore">
+      <DependentUpon>Test #5 - Choose specifc item from a grid and delete it, verify deletion.tstest</DependentUpon>
+    </None>
+    <None Include="Test #6 - Delete multiple messages, verify deletion.resx">
+      <DependentUpon>Test #6 - Delete multiple messages, verify deletion.tstest</DependentUpon>
+    </None>
+    <None Include="Test #6 - Delete multiple messages, verify deletion.imgstore">
+      <DependentUpon>Test #6 - Delete multiple messages, verify deletion.tstest</DependentUpon>
+    </None>
+    <None Include="Test #7 - Failing Test.resx">
+      <DependentUpon>Test #7 - Failing Test.tstest</DependentUpon>
+    </None>
+    <None Include="Test #7 - Failing Test.imgstore">
+      <DependentUpon>Test #7 - Failing Test.tstest</DependentUpon>
+    </None>
+    <None Include="Test #8 - Element not found.resx">
+      <DependentUpon>Test #8 - Element not found.tstest</DependentUpon>
+    </None>
+    <None Include="Test #8 - Element not found.imgstore">
+      <DependentUpon>Test #8 - Element not found.tstest</DependentUpon>
+    </None>
+     <None Include="Test #9 - Attempt login via Image Search.resx">
+      <DependentUpon>Test #9 - Attempt login via Image Search.tstest</DependentUpon>
+    </None>
+    <None Include="Test #9 - Attempt login via Image Search.imgstore">
+      <DependentUpon>Test #9 - Attempt login via Image Search.tstest</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Name="DemoTests" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(MSBuildExtensionsPath)\Telerik\WebUITestStudio\Telerik.WebUITestStudio.targets" />
+</Project>

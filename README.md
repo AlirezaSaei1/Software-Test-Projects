@@ -15,7 +15,7 @@ Welcome to the GitHub repository for the Introduction to Software Testing course
 
 These assignments involve testing a train reservation system. The tasks include:
 
-- **Assignment 1:** Writing test cases for the train reservation system.
+- **Assignment 1:** Writing test cases for the train reservation system Using `JUnit` and `Cucumber`.
 - **Assignment 2:** Executing the test cases and documenting the results.
 
 
